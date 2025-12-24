@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Happy 20th Birthday</title>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Fredoka:wght@700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--bg:#FFD6E8;
+--pink:#FF5FA2;
+--purple:#7B1FA2;
+--gold:#D4AF37;
+--text:#333;
+}
+
+html,body{
+margin:0;
+padding:0;
+height:100%;
+background:var(--bg);
+font-family:'Poppins',sans-serif;
+overflow:hidden;
+}
+
+/* COMMON PAGE */
+.page{
+position:fixed;
+top:0;left:0;
+width:100%;
+height:100%;
+display:none;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+box-sizing:border-box;
+z-index: 10; /* Ensure content stays above decorations */
+}
+.active{display:flex;}
+
+/* TITLES */
+.roundy-title{
+font-family:'Fredoka',sans-serif;
+color:var(--purple);
+text-transform:uppercase;
+line-height:1.15;
+}
+
+/* BUTTON */
+.btn{
+background:var(--pink);
+color:white;
+border:none;
+border-radius:50px;
+padding:14px 36px;
+font-weight:700;
+letter-spacing:2px;
+margin-top:25px;
+cursor:pointer;
+position: relative;
+z-index: 20;
+}
+
+/* SPARKLE */
+.sparkle{
+animation:sparkle 1.6s infinite;
+}
+@keyframes sparkle{
+50%{box-shadow:0 0 28px rgba(212,175,55,.9)}
+}
+
+/* DECORATIONS - UPDATED TO FLOW DOWN */
+.decor{
+position:absolute;
+font-size:26px;
+opacity:.6;
+animation:floatDown 8s linear infinite;
+pointer-events:none;
+top: -10vh; /* Start above the screen */
+}
+@keyframes floatDown{
+0%{transform:translateY(-10vh) rotate(0)}
+100%{transform:translateY(110vh) rotate(360deg)}
+}
+
+/* PAGE 2 */
+.gift{
+font-size:110px;
+animation:bounceGift 2s infinite;
+}
+@keyframes bounceGift{
+40%{transform:translateY(-30px)}
+}
+
+/* PAGE 3 TITLE */
+.birthday-bounce{
+font-size:2.6rem;
+color:var(--pink);
+animation:softBounce 1.8s ease-in-out infinite;
+margin-bottom:10px;
+}
+@keyframes softBounce{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+}
+
+.big-cake{
+font-size:120px;
+margin:14px 0;
+}
+
+/* FINAL CARD */
+.card{
+background:white;
+border-radius:35px;
+padding:30px 25px;
+max-width:500px;
+box-shadow:0 25px 50px rgba(123,31,162,.15);
+overflow-y:auto;
+max-height:90vh;
+}
+
+.header-final{
+font-family:'Fredoka',sans-serif;
+color:var(--purple);
+font-size:1.4rem;
+font-weight:700;
+margin-bottom:6px;
+animation:livelyPulse 2.5s ease-in-out infinite;
+text-shadow:0 0 10px rgba(255,95,162,.6);
+}
+@keyframes livelyPulse{
+0%,100%{transform:scale(1)}
+50%{transform:scale(1.05)}
+}
+
+/* CAKE */
+.animated-cake{
+font-size:50px;
+margin-bottom:15px;
+display:inline-block;
+animation:pulseCake 2s infinite;
+}
+@keyframes pulseCake{
+0%,100%{transform:scale(1)}
+50%{transform:scale(1.3) rotate(5deg)}
+}
+
+.wish{
+text-align:justify;
+font-size:1rem;
+line-height:1.7;
+color:var(--text);
+}
+
+.highlight{
+margin-top:20px;
+font-weight:900;
+font-size:1.1rem;
+color:var(--purple);
+border-top:1px solid #eee;
+padding-top:15px;
+text-transform:uppercase;
+}
+
+.personal-note{
+margin-top:15px;
+font-size:.95rem;
+color:var(--text);
+font-style:italic;
+text-align:center;
+}
+.signature{
+display:block;
+margin-top:10px;
+font-weight:700;
+color:var(--pink);
+font-family:'Fredoka',sans-serif;
+}
+</style>
+</head>
+
+<body>
+
+<div id="page1" class="page active">
+<div>
+<h1 class="roundy-title">ARE YOU RITHIKASHRI?</h1>
+<button class="btn sparkle" onclick="goPage(2)">YES</button>
+<button class="btn" onclick="alert('This surprise is not for you 😊')">NO</button>
+</div>
+</div>
+
+<div id="page2" class="page" onclick="goPage(3)">
+<div>
+<div class="gift">🎁</div>
+<h2 class="roundy-title" style="font-size:1.2rem;margin-top:20px;">TAP FOR THE SURPRISE</h2>
+</div>
+</div>
+
+<div id="page3" class="page">
+<div>
+<div class="roundy-title birthday-bounce">
+HAPPY 20TH BIRTHDAY<br>RITHIKASHRI JAYABALAN!!!
+</div>
+<div class="big-cake">🎂</div>
+<button class="btn" onclick="goPage(4)">NEXT</button>
+</div>
+</div>
+
+<div id="page4" class="page">
+<div class="card">
+<div class="header-final">
+HAPPY 20TH BIRTHDAY<br>RITHIKASHRI JAYABALAN
+</div>
+
+<div class="animated-cake">🎂</div>
+
+<div class="wish">
+<p>Happy 20th Birthday, <b>RITHIKA ✨</b>. As you step into your twenties, may your life be guided by purpose, strength, and quiet confidence.</p>
+
+<p>The path you’ve chosen in medicine requires courage and dedication. Every long day and late night is shaping you into someone who will touch lives with knowledge, care, and compassion.</p>
+
+<p>Through it all, keep that smile on your face — a reminder of your resilience, grace, and inner strength.</p>
+
+<div class="highlight">
+WISH YOU ONCE AGAIN HAPPY BIRTHDAY<br>
+DR. RITHIKASHRI JAYABALAN 🥼
+</div>
+
+<div class="personal-note">
+I hope today is the best day of your year!
+<span class="signature">- Saranyan 😊</span>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+function goPage(n){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('page'+n).classList.add('active');
+
+/* PAGE 3 CONFETTI */
+if(n===3){
+confetti({
+particleCount:160,
+spread:110,
+origin:{y:.65},
+colors:['#FF5FA2','#7B1FA2','#D4AF37']
+});
+}
+
+/* PAGE 4 CONFETTI (LESS) */
+if(n===4){
+confetti({
+particleCount:100,
+spread:90,
+origin:{y:.7},
+colors:['#FF5FA2','#7B1FA2','#D4AF37']
+});
+}
+}
+
+/* DECORATIONS - FLOWING TOP TO BOTTOM */
+const icons=['🎈','🥼','🩺','🥳','🍰','✨']; // Added colorful icons
+for(let i=0;i<30;i++){
+let d=document.createElement('div');
+d.className='decor';
+d.textContent=icons[Math.floor(Math.random()*icons.length)];
+d.style.left=Math.random()*100+'vw';
+// Randomize start position so they don't all drop at the exact same time
+d.style.animationDelay=Math.random()*8+'s';
+d.style.animationDuration=(6+Math.random()*6)+'s';
+document.body.appendChild(d);
+}
+</script>
+
+</body>
+</html>
